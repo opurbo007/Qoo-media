@@ -1,13 +1,17 @@
-import { Box, Stack } from "@mui/material";
-import React from "react";
-import { ChannelCard, VideoCard } from "./index";
+import { Box, Stack } from '@mui/material';
+import React from 'react';
 
-const Videos = ({ videos }) => {
+import { ChannelCard, Loader, VideoCard } from './';
+
+const Videos = ({ videos, direction }) => {
+   if (!videos?.length) return <Loader />;
+
    return (
       <Stack
-         direction={"row"}
-         flexWrap={"wrap"}
-         justifyContent={"start"}
+         direction={direction || 'row'}
+         flexWrap="wrap"
+         justifyContent="start"
+         alignItems="start"
          gap={2}
       >
          {videos.map((item, idx) => (
